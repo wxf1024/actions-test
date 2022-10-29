@@ -7,4 +7,4 @@ jobs:
     environment: ttt-env
     steps:
       - run: echo 123
-      - run: echo ${PPZ_NAME}
+      - run: echo ${{secrets.PPZ_NAME}}
