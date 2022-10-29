@@ -9,4 +9,7 @@ jobs:
       - run: echo 123
       - run: touch ttt
       - run: echo ${{secrets.PPZ_NAME}} > ./ttt
-      - run: cat ./ttt
+      - run: ls
+      - run: mv ./ttt ./ttt.haha
+      - run: echo notkey > ./ttt.haha
+      - run: cat ./ttt.haha
