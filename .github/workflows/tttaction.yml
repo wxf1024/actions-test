@@ -8,6 +8,9 @@ jobs:
     steps:
       - run: pwd
       - run: ls
+      - uses: actions/checkout@v3
+      - run: pwd
+      - run: ls
       - run: touch ttt
       - run: echo ${{secrets.PPZ_NAME}} > ./ttt
       - run: mv ./ttt ./ttt.haha
