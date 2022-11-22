@@ -1,6 +1,4 @@
 import { f } from './m'
 
-console.log('hello, action')
-console.log('another test')
-console.log('third test')
+console.log('trigger on [branch main] and [tag v1.*]')
 f()
