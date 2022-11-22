@@ -1,0 +1,27 @@
+name: deploy to ucloud
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ucloud-production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      
+      - name: Install and Build
+        run: |
+          npm install
+          npm run pro
+      
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SOURCE: "dist/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          TARGET: ${{ secrets.TARGET }}
